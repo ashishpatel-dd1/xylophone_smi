@@ -8,100 +8,190 @@ void main() {
 class MyXylophoneApp extends StatelessWidget {
   const MyXylophoneApp({super.key});
 
+  Future<void> playSound(int noteNumber) async {
+    final player = AudioPlayer();
+    await player.play(AssetSource('audio/note$noteNumber.wav'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.red,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note1.wav'));
-                }, child: Center(child: Text('note1'))),
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.red, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(1);
+                    },
+                    child: SizedBox()),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.orange,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note2.wav'));
-                }, child: Center(child: Text('note2'))),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.orange, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(2);
+                    },
+                    child: SizedBox()),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.yellow,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note3.wav'));
-                }, child: Center(child: Text('note3'))),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.yellow, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(3);
+                    },
+                    child: SizedBox()),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.green,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note4.wav'));
-                }, child: Center(child: Text('note4'))),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.green, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(4);
+                    },
+                    child: SizedBox()),
               ),
-            ),Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.blue,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note5.wav'));
-                }, child: Center(child: Text('note5'))),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(5);
+                    },
+                    child: SizedBox()),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.indigo,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note6.wav'));
-                }, child: Center(child: Text('note6'))),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.indigo, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(6);
+                    },
+                    child: SizedBox()),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.purple,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note7.wav'));
-                }, child: Center(child: Text('note7'))),
-              ),
-            )
-          ],
-        ),),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.purple, // Xylophone key color
+                      padding: EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 32.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      shadowColor: const Color.fromARGB(
+                          102, 0, 0, 0), // Equivalent to opacity 0.4
+                      elevation: 6.0,
+                    ).copyWith(
+                      overlayColor: WidgetStateProperty.all(
+                        const Color.fromARGB(
+                            76, 255, 0, 0), // Equivalent to opacity 0.3
+                      ),
+                    ),
+                    onPressed: () {
+                      playSound(7);
+                    },
+                    child: SizedBox( )),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
