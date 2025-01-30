@@ -13,16 +13,20 @@ class MyXylophoneApp extends StatelessWidget {
     await player.play(AssetSource('audio/note$noteNumber.wav'));
   }
 
+  // void BuildKey(){
+  //
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.red, // Xylophone key color
@@ -45,8 +49,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.orange, // Xylophone key color
@@ -69,8 +72,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.yellow, // Xylophone key color
@@ -93,8 +95,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.green, // Xylophone key color
@@ -117,8 +118,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.blue, // Xylophone key color
@@ -141,8 +141,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.indigo, // Xylophone key color
@@ -165,8 +164,7 @@ class MyXylophoneApp extends StatelessWidget {
                     },
                     child: SizedBox()),
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
+              Expanded(
                 child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.purple, // Xylophone key color
