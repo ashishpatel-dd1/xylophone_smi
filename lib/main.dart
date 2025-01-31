@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-void main() {
-  runApp(const MyXylophoneApp());
-}
+void main() => runApp(MyXylophoneApp());
 
 class MyXylophoneApp extends StatelessWidget {
   const MyXylophoneApp({super.key});
@@ -13,9 +11,21 @@ class MyXylophoneApp extends StatelessWidget {
     await player.play(AssetSource('audio/note$noteNumber.wav'));
   }
 
-  // void BuildKey(){
-  //
-  // }
+  Expanded buildKey({required MaterialColor keyColor, required int keyNumber}) {
+    return Expanded(
+      child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: keyColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+          ),
+          onPressed: () {
+            playSound(keyNumber);
+          },
+          child: SizedBox()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,167 +36,13 @@ class MyXylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.red, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(1);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.orange, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(2);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.yellow, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(3);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.green, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(4);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(5);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.indigo, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(6);
-                    },
-                    child: SizedBox()),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.purple, // Xylophone key color
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16.0, horizontal: 32.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      shadowColor: const Color.fromARGB(
-                          102, 0, 0, 0), // Equivalent to opacity 0.4
-                      elevation: 6.0,
-                    ).copyWith(
-                      overlayColor: WidgetStateProperty.all(
-                        const Color.fromARGB(
-                            76, 255, 0, 0), // Equivalent to opacity 0.3
-                      ),
-                    ),
-                    onPressed: () {
-                      playSound(7);
-                    },
-                    child: SizedBox( )),
-              )
+              buildKey(keyColor: Colors.red, keyNumber: 1),
+              buildKey(keyColor: Colors.orange, keyNumber: 2),
+              buildKey(keyColor: Colors.yellow, keyNumber: 3),
+              buildKey(keyColor: Colors.green, keyNumber: 4),
+              buildKey(keyColor: Colors.blue, keyNumber: 5),
+              buildKey(keyColor: Colors.indigo, keyNumber: 6),
+              buildKey(keyColor: Colors.deepPurple, keyNumber: 7)
             ],
           ),
         ),
