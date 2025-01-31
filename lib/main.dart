@@ -1,107 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-void main() {
-  runApp(const MyXylophoneApp());
-}
+void main() => runApp(MyXylophoneApp());
 
 class MyXylophoneApp extends StatelessWidget {
   const MyXylophoneApp({super.key});
+
+  Future<void> playSound(int noteNumber) async {
+    final player = AudioPlayer();
+    await player.play(AssetSource('audio/note$noteNumber.wav'));
+  }
+
+  Expanded buildKey({required MaterialColor keyColor, required int keyNumber}) {
+    return Expanded(
+      child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: keyColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+          ),
+          onPressed: () {
+            playSound(keyNumber);
+          },
+          child: SizedBox()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.red,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note1.wav'));
-                }, child: Center(child: Text('note1'))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.orange,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note2.wav'));
-                }, child: Center(child: Text('note2'))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.yellow,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note3.wav'));
-                }, child: Center(child: Text('note3'))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.green,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note4.wav'));
-                }, child: Center(child: Text('note4'))),
-              ),
-            ),Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.blue,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note5.wav'));
-                }, child: Center(child: Text('note5'))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.indigo,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note6.wav'));
-                }, child: Center(child: Text('note6'))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                color: Colors.purple,
-                width: 200,
-                height: 100,
-                child: TextButton(onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/note7.wav'));
-                }, child: Center(child: Text('note7'))),
-              ),
-            )
-          ],
-        ),),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              buildKey(keyColor: Colors.red, keyNumber: 1),
+              buildKey(keyColor: Colors.orange, keyNumber: 2),
+              buildKey(keyColor: Colors.yellow, keyNumber: 3),
+              buildKey(keyColor: Colors.green, keyNumber: 4),
+              buildKey(keyColor: Colors.blue, keyNumber: 5),
+              buildKey(keyColor: Colors.indigo, keyNumber: 6),
+              buildKey(keyColor: Colors.deepPurple, keyNumber: 7)
+            ],
+          ),
+        ),
       ),
     );
   }
