@@ -26,7 +26,37 @@ class _XylophoneScreenState extends State<XylophoneScreen> {
 
   Future<void> playSound(int noteNumber) async {
     await _player.stop(); // Stop previous sound if playing
-    await _player.play(AssetSource('audio/note$noteNumber.wav')); // Play new sound
+    await _player
+        .play(AssetSource('audio/note$noteNumber.wav')); // Play new sound
+  }
+
+  Widget buildKeys() {
+    final List<Color> keyColors = [
+      Colors.red,
+      Colors.orange,
+      Colors.yellow,
+      Colors.green,
+      Colors.blue,
+      Colors.indigo,
+      Colors.deepPurple
+    ];
+
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: List.generate(
+            keyColors.length,
+            (index) => Expanded(
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: keyColors[index],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                    ),
+                    onPressed: () => playSound(index + 1),
+                    child: const SizedBox.shrink(),
+                  ),
+                )));
   }
 
   Expanded buildKey({required Color keyColor, required int keyNumber}) {
@@ -48,20 +78,7 @@ class _XylophoneScreenState extends State<XylophoneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            buildKey(keyColor: Colors.red, keyNumber: 1),
-            buildKey(keyColor: Colors.orange, keyNumber: 2),
-            buildKey(keyColor: Colors.yellow, keyNumber: 3),
-            buildKey(keyColor: Colors.green, keyNumber: 4),
-            buildKey(keyColor: Colors.blue, keyNumber: 5),
-            buildKey(keyColor: Colors.indigo, keyNumber: 6),
-            buildKey(keyColor: Colors.purple, keyNumber: 7),
-          ],
-        ),
-      ),
+      body: SafeArea(child: buildKeys()),
     );
   }
 }
